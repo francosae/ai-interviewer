@@ -13,8 +13,7 @@ function Assistant() {
         <AssistantButton
           audioLevel={audioLevel}
           callStatus={callStatus}
-          toggleCall={toggleCall}
-        ></AssistantButton>
+          toggleCall={toggleCall}></AssistantButton>
       </div>
     </>
   );

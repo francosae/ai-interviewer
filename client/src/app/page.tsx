@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import { AuroraBackground } from "@/components/background";
 import { Button } from "@/components/ui/button";
-
+import Link from "next/link";
 export default function Home() {
   return (
     <AuroraBackground>
@@ -15,19 +15,16 @@ export default function Home() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4"
-      >
-        
+        className="relative flex flex-col gap-4 items-center justify-center px-4">
         <div className="text-3xl md:text-7xl font-bold dark:text-white text-center">
-        {`Real-time Mock Interviews, \n
+          {`Real-time Mock Interviews, \n
         powered by AI.`}
         </div>
-        <div className="font-extralight text-base md:text-4xl dark:text-neutral-200 py-4">
-          Give it a try
-        </div>
-        <Button className="bg-black text-white font-light text-xl w-30 h-25">
-          Try it out
-        </Button>
+        <Link href="/interview">
+          <Button className="bg-black text-white font-light text-xl w-30 h-25">
+            Try it out
+          </Button>
+        </Link>
       </motion.div>
     </AuroraBackground>
   );
