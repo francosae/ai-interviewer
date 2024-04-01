@@ -63,6 +63,7 @@ function Display() {
       height="74vh"
       width="100%"
       defaultLanguage='python'
+      defaultValue="def twoSum(nums: List[int], target: int) -> List[int]:"
       options={{
         readOnly: false,
         fontSize: 14,
