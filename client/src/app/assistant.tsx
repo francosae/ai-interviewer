@@ -7,13 +7,11 @@ function Assistant() {
   return (
     <>
       <div className="chat-history">
-        <Display />
-      </div>
-      <div className="user-input">
-        <AssistantButton
+        <Display
           audioLevel={audioLevel}
           callStatus={callStatus}
-          toggleCall={toggleCall}></AssistantButton>
+          toggleCall={toggleCall}
+        />
       </div>
     </>
   );

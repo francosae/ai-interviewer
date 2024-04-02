@@ -1,10 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useState } from "react";
 import { AuroraBackground } from "@/components/background";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import "./globals.css";
+import { Input } from "@/components/ui/input";
 export default function Home() {
+  const [accessCode, setAccessCode] = useState("");
+
+  function checkAccessCode(e: any) {
+    e.preventDefault();
+    if (e.target.value === "assword") {
+      setAccessCode(e.target.value);
+    }
+  }
+
+  function setLocalStorage() {
+    localStorage.setItem("accessCode", accessCode);
+  }
+
   return (
     <AuroraBackground>
       <motion.div
@@ -20,11 +35,17 @@ export default function Home() {
           {`Real-time Mock Interviews, \n
         powered by AI.`}
         </div>
-        <Link href="/interview">
-          <Button className="bg-black text-white font-light text-xl w-30 h-25">
-            Try it out
-          </Button>
-        </Link>
+        <div className="flex flex-row gap-4 items-center justify-center">
+          <Input onChange={(e) => checkAccessCode(e)}></Input>
+          <Link href={accessCode === "assword" ? "/dashboard" : "/"}>
+            <Button
+              disabled={accessCode !== "assword"}
+              onClick={setLocalStorage}
+              className="bg-black text-white font-light text-xl w-30 h-25">
+              Try it out
+            </Button>
+          </Link>
+        </div>
       </motion.div>
     </AuroraBackground>
   );

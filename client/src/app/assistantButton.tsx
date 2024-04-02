@@ -1,6 +1,7 @@
 import { CALL_STATUS, useVapi } from "@/hooks/useVapi";
 import { Loader2, Mic, Square } from "lucide-react";
 import { Button } from "../ui/button";
+import { useEffect } from "react";
 
 const AssistantButton = ({
   toggleCall,
@@ -31,6 +32,12 @@ const AssistantButton = ({
     cursor: "pointer",
   };
 
+  useEffect(() => {
+    if (toggleCall) {
+      toggleCall();
+    }
+  }, []);
+
   return (
     <Button
       style={buttonStyle}
@@ -41,8 +48,7 @@ const AssistantButton = ({
           ? "bg-orange-500 hover:bg-orange-700"
           : "bg-green-500 hover:bg-green-700"
       } flex items-center justify-center`}
-      onClick={toggleCall}
-    >
+      onClick={toggleCall}>
       {callStatus === CALL_STATUS.ACTIVE ? (
         <Square />
       ) : callStatus === CALL_STATUS.LOADING ? (
