@@ -28,6 +28,7 @@ function Display({
   toggleCall,
   callStatus,
   audioLevel = 0,
+  stop,
 }: Partial<ReturnType<typeof useVapi>>) {
   const [code, setCode] = useState<string>("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -99,6 +100,7 @@ function Display({
     router.push("/interview/feedback");
   }
 
+  console.log(router)
   useEffect(() => {
     const onMessageUpdate = (message: Message) => {
       if (
@@ -137,6 +139,7 @@ function Display({
       vapi.off("call-end", () => console.log("call-end"));
     };
   }, []);
+
 
   const [readOnly, setreadOnly] = useState(true);
   return (

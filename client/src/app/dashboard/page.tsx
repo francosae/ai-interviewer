@@ -11,6 +11,13 @@ function classNames(...classes: any[]) {
 }
 
 export default function Dashboard() {
+
+  const { stop } = useVapi();
+
+  useEffect(() => {
+    stop();
+  }, []);
+  
   useEffect(() => {
     const accessCode = localStorage.getItem("accessCode");
     if (accessCode !== "assword") {
@@ -145,6 +152,7 @@ export default function Dashboard() {
 }
 
 import { HoverEffect } from "@/components/card-hover-effect";
+import { useVapi } from "@/hooks/useVapi";
 
 function Cards() {
   return (
@@ -158,6 +166,7 @@ const projects = [
     title: `Technical Mock Interview`,
     description:
       "Practice real-time coding interviews with an AI-powered interviewer.",
-    link: "https://ai-interviewer-opal.vercel.app/interview",
+    // link: "https://ai-interviewer-opal.vercel.app/interview",
+    link: "http://localhost:3000/interview",
   },
 ];

@@ -1,14 +1,23 @@
 "use client";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AuroraBackground } from "@/components/background";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import "./globals.css";
 import { Input } from "@/components/ui/input";
+import { useVapi } from "@/hooks/useVapi";
+
 export default function Home() {
   const [accessCode, setAccessCode] = useState("");
 
+  const { stop } = useVapi();
+
+  useEffect(() => {
+    stop();
+  }, []);
+  
+  
   function checkAccessCode(e: any) {
     e.preventDefault();
     if (e.target.value === "assword") {

@@ -13,6 +13,12 @@ function classNames(...classes: any[]) {
 export default function Dashboard() {
   const [feedback, setFeedback] = useState<any>({});
 
+  const { stop } = useVapi();
+
+  useEffect(() => {
+    stop();
+  }, []);
+  
   useEffect(() => {
     const feedbackStr = localStorage.getItem("feedback");
     if (feedbackStr !== null) {
@@ -151,6 +157,7 @@ export default function Dashboard() {
 }
 
 import { HoverEffect } from "@/components/card-hover-effect";
+import { useVapi } from "@/hooks/useVapi";
 
 export function Cards(feedback: any) {
   const feedbackList = [

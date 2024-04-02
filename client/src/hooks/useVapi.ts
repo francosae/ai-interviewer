@@ -9,7 +9,6 @@ import {
   TranscriptMessageTypeEnum,
 } from "@/lib/types/conversation.type";
 import { useEffect, useState } from "react";
-
 import { vapi } from "@/lib/vapi.sdk";
 
 export enum CALL_STATUS {
