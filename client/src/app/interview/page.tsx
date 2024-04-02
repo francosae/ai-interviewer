@@ -9,7 +9,13 @@ import { MultiStepLoader as Loader } from "@/components/multi-step-loader";
 import { IconSquareRoundedX } from "@tabler/icons-react";
 
 export default function Home() {
-  let accessCode = localStorage.getItem("accessCode");
+  const [accessCode, setAccessCode] = useState("");
+  useEffect(() => {
+    let accessCode = localStorage.getItem("accessCode");
+    if (accessCode) {
+      setAccessCode(accessCode);
+    }
+  }, []);
 
   if (accessCode !== "assword") {
     return (

@@ -146,18 +146,18 @@ export default function Dashboard() {
 
 import { HoverEffect } from "@/components/card-hover-effect";
 
-export function Cards() {
+function Cards() {
   return (
     <div className="max-w-5xl mx-auto px-8">
       <HoverEffect items={projects} />
     </div>
   );
 }
-export const projects = [
+const projects = [
   {
     title: `Technical Mock Interview`,
     description:
       "Practice real-time coding interviews with an AI-powered interviewer.",
-    link: "http://localhost:3000/interview",
+    link: "https://ai-interviewer-opal.vercel.app/interview",
   },
 ];
