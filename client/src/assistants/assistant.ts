@@ -12,20 +12,20 @@ export const assistant: CreateAssistantDTO | any = {
     temperature: 0.7,
     systemPrompt: systemPrompt,
     functions: [
-      {
-        name: "enableEditor",
-        async: true,
-        description: "Enables the code editor for the user, allowing them to write code. This function should be called after the problem statement has been said to the user.",
-        parameters: {
-          type: "object",
-          properties: {
-            enable: {
-              type: "boolean",
-              description: "A boolean value indicating whether the code editor should be enabled or disabled. Set this value to true to enable the code editor for the user",
-            }
-          },
-        }
-      },
+      // {
+      //   name: "enableEditor",
+      //   async: true,
+      //   description: "Enables the code editor for the user, allowing them to write code. This function should be called after the problem statement has been said to the user.",
+      //   parameters: {
+      //     type: "object",
+      //     properties: {
+      //       enable: {
+      //         type: "boolean",
+      //         description: "A boolean value indicating whether the code editor should be enabled or disabled. Set this value to true to enable the code editor for the user",
+      //       }
+      //     },
+      //   }
+      // },
       {
         name: "finishInterview",
         async: true,

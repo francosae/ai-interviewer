@@ -166,7 +166,7 @@ const projects = [
     title: `Technical Mock Interview`,
     description:
       "Practice real-time coding interviews with an AI-powered interviewer.",
-    // link: "https://ai-interviewer-opal.vercel.app/interview",
-    link: "http://localhost:3000/interview",
+    link: "https://ai-interviewer-opal.vercel.app/interview",
+    // link: "http://localhost:3000/interview",
   },
 ];

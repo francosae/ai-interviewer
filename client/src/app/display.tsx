@@ -15,7 +15,17 @@ import { Loader2, Mic, Square } from "lucide-react";
 import { Button } from "../ui/button";
 import { AssistantButton } from "./assistantButton";
 import { useRouter } from "next/navigation";
-
+import { BellIcon, CheckIcon } from "@radix-ui/react-icons"
+import { cn } from "@/lib/utils";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import AIWriter from "react-aiwriter";
 const navigation = [
   { name: "Dashboard", href: "", icon: CodeBracketIcon, current: true },
 ];
@@ -100,7 +110,6 @@ function Display({
     router.push("/interview/feedback");
   }
 
-  console.log(router)
   useEffect(() => {
     const onMessageUpdate = (message: Message) => {
       if (
@@ -140,7 +149,7 @@ function Display({
     };
   }, []);
 
-
+  
   const [readOnly, setreadOnly] = useState(true);
   return (
     <div>
@@ -306,7 +315,7 @@ function Display({
               defaultLanguage="python"
               defaultValue="def twoSum(nums: List[int], target: int) -> List[int]:"
               options={{
-                readOnly: readOnly,
+                readOnly: false,
                 fontSize: 14,
                 fontFamily: "Droid Sans Mono",
                 acceptSuggestionOnCommitCharacter: true,
@@ -336,14 +345,42 @@ function Display({
         </div>
       </main>
 
-      <aside className="fixed inset-y-0 left-20 hidden w-96 overflow-y-auto border-r border-gray-200 px-4 py-6 sm:px-6 lg:px-8 xl:block">
+      <aside className="fixed inset-y-0 left-20 hidden w-96 overflow-y-auto border-r border-gray-200 px-4 py-6 sm:px-6 lg:px-8 xl:block ">
         <h2 className="mb-4">
           <b>Problem Statement: </b>
         </h2>
         <div dangerouslySetInnerHTML={{ __html: problem?.question }}></div>
+        <CardDemo />
       </aside>
     </div>
   );
 }
 
 export { Display };
+
+
+type CardProps = React.ComponentProps<typeof Card>
+
+export function CardDemo({ className, ...props }: CardProps) {
+  const { activeTranscript } = useVapi()
+  const [message, setMessage] = useState<any>(null)
+
+  useEffect(() => {
+    if (activeTranscript?.transcript && activeTranscript.role == "assistant") {
+      setMessage(activeTranscript.transcript)
+    }
+    console.log(message)
+  }, [activeTranscript])
+
+
+  return (
+    <Card className={cn("w-[300px] mt-px", className)} {...props}>
+      <CardContent className="mt-px">
+          <p className="mt-px">
+            {message}
+          </p>
+      </CardContent>
+    </Card>
+  )
+}
+  

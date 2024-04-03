@@ -45,7 +45,7 @@ export default function Home() {
         powered by AI.`}
         </div>
         <div className="flex flex-row gap-4 items-center justify-center">
-          <Input onChange={(e) => checkAccessCode(e)}></Input>
+          <Input type="password" onChange={(e) => checkAccessCode(e)}></Input>
           <Link href={accessCode === "assword" ? "/dashboard" : "/"}>
             <Button
               disabled={accessCode !== "assword"}

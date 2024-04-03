@@ -10,7 +10,7 @@ const AssistantButton = ({
 }: Partial<ReturnType<typeof useVapi>>) => {
   const color =
     callStatus === CALL_STATUS.ACTIVE
-      ? "red"
+      ? "blue"
       : callStatus === CALL_STATUS.LOADING
       ? "orange"
       : "green";
@@ -25,7 +25,7 @@ const AssistantButton = ({
     }px ${color}`,
     backgroundColor:
       callStatus === CALL_STATUS.ACTIVE
-        ? "red"
+        ? "blue"
         : callStatus === CALL_STATUS.LOADING
         ? "orange"
         : "green",
