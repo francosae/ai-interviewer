@@ -21,7 +21,7 @@ The Real-time AI Interviewer is built using a modern and efficient architecture:
 
 ## Getting Started
 To run the Real-time AI Interviewer locally, follow these steps:
-1. Clone the repository: `git clone https://github.com/your-username/real-time-ai-interviewer.git`
+1. Clone the repository: `git clone https://github.com/francosae/real-time-ai-interviewer.git`
 2. Install dependencies: `npm install`
 3. Set up the required environment variables (e.g., API keys).
 4. Start the development server: `npm start`
