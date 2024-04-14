@@ -26,6 +26,3 @@ To run the Real-time AI Interviewer locally, follow these steps:
 3. Set up the required environment variables (e.g., API keys).
 4. Start the development server: `npm start`
 5. Access the application in your web browser at `http://localhost:3000`
-
-## License
-Real-time AI Interviewer is released under the [MIT License](https://opensource.org/licenses/MIT).
